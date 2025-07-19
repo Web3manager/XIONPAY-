@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Add Business | XIONPAY</title>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: #0a0a0a;
+      color: #f1f1f1;
+      padding: 2rem 1rem;
+      line-height: 1.6;
+    }
+
+    h1 {
+      text-align: center;
+      font-size: 1.8rem;
+      color: #00f6ff;
+      margin-bottom: 2rem;
+    }
+
+    .tiers {
+      display: flex;
+      flex-direction: column;
+      gap: 1.5rem;
+    }
+
+    .tier {
+      background: #111;
+      border-left: 6px solid #00f6ff;
+      padding: 1.5rem;
+      border-radius: 12px;
+      box-shadow: 0 8px 20px rgba(0, 246, 255, 0.05);
+      cursor: pointer;
+      transition: transform 0.2s ease, background 0.3s ease;
+      position: relative;
+    }
+
+    .tier:hover {
+      transform: scale(1.02);
+      background: #161616;
+    }
+
+    .tier h2 {
+      font-size: 1.3rem;
+      margin-bottom: 0.5rem;
+      color: #00f6ff;
+    }
+
+    .tier .arrow {
+      position: absolute;
+      right: 20px;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 1.4rem;
+      color: #888;
+    }
+
+    .screen {
+      display: none;
+      padding: 1rem;
+      background: #111;
+      border-radius: 10px;
+      margin-top: 1rem;
+      animation: fadeIn 0.4s ease-in-out;
+    }
+
+    .screen.active {
+      display: block;
+    }
+
+    .footer-warning {
+      margin-top: 1.5rem;
+      font-size: 0.9rem;
+      color: #ffae00;
+      border-top: 1px solid #333;
+      padding-top: 1rem;
+    }
+
+    .cta-button {
+      display: inline-block;
+      margin-top: 1.5rem;
+      padding: 0.7rem 1.8rem;
+      background: #00f6ff;
+      color: #000;
+      border: none;
+      font-weight: 600;
+      border-radius: 8px;
+      cursor: pointer;
+      transition: all 0.3s ease;
+      text-decoration: none;
+    }
+
+    .cta-button:hover {
+      background: #00dbe5;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to   { opacity: 1; transform: translateY(0); }
+    }
+
+    .back-link {
+      margin-top: 2rem;
+      color: #00f6ff;
+      display: inline-block;
+      cursor: pointer;
+    }
+
+    @media screen and (min-width: 600px) {
+      .tiers {
+        max-width: 600px;
+        margin: 0 auto;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <h1>Ready to join the ELITE path to receive payments & retain customers?</h1>
+
+  <div class="tiers">
+    <div class="tier" onclick="showScreen('wooden')">
+      <h2>🪵 The WOODEN Gate</h2>
+      <div class="arrow">➡️</div>
+    </div>
+    <div class="tier" onclick="showScreen('bronze')">
+      <h2>🥉 BRONZE Lobby</h2>
+      <div class="arrow">➡️</div>
+    </div>
+    <div class="tier" onclick="showScreen('golden')">
+      <h2>🥇 Golden Boot</h2>
+      <div class="arrow">➡️</div>
+    </div>
+    <div class="tier" onclick="showScreen('platinum')">
+      <h2>💎 PLATINUM Envoy</h2>
+      <div class="arrow">➡️</div>
+    </div>
+  </div>
+
+  <!-- WOODEN GATE SCREEN -->
+  <div class="screen" id="wooden">
+    <h2>🪵 Welcome to the WOODEN Gate</h2>
+    <p>Fill your business details below and get listed — it's FREE!</p>
+    <form>
+      <input type="text" placeholder="Business Name" required style="width:100%; padding:0.6rem; margin:0.5rem 0; border-radius:6px; border:none; background:#222; color:#fff;"><br>
+      <input type="text" placeholder="Category" required style="width:100%; padding:0.6rem; margin:0.5rem 0; border-radius:6px; border:none; background:#222; color:#fff;"><br>
+      <input type="text" placeholder="XION Wallet Address" required style="width:100%; padding:0.6rem; margin:0.5rem 0; border-radius:6px; border:none; background:#222; color:#fff;"><br>
+      <button class="cta-button">Submit</button>
+    </form>
+    <div class="footer-warning">⚠️ This room is dampy. Been a while they reviewed these forms... You better choose another door. You're worth something, Chad.</div>
+    <div class="back-link" onclick="goBack()">← Back to Tiers</div>
+  </div>
+
+  <!-- BRONZE SCREEN -->
+  <div class="screen" id="bronze">
+    <div class="back-link" onclick="goBack()">← Back to Tiers</div>
+    
+    <h2>🥉 Welcome to the BRONZE Lobby</h2>
+    <p>Join the brand waitlist for just <strong>$150/6 months.</strong> Basic features only.</p>
+    <p>5 businesses are approved from this door.</p>
+    <div class="footer-warning">⚠️ Loyalty programs, Basic features and some freebies here.</div>
+    <button class="cta-button">Join the Waitlist</button>
+  </div>
+
+  <!-- GOLDEN SCREEN -->
+  <div class="screen" id="golden">
+    <div class="back-link" onclick="goBack()">← Back to Tiers</div>
+    <h2>🥇 Welcome to the Golden Boot</h2>
+    <p>Work with our client respondent on X (Twitter) to apply.</p>
+    <p>Includes loyalty campaign, 24/7 support, free ads, and more.</p>
+    <p><strong>Cost: $300 / 6 months</strong></p>
+    <button class="cta-button" onclick="window.open('https://twitter.com/xionpay', '_blank')">Message Us on Twitter</button>
+  </div>
+
+  <!-- PLATINUM SCREEN -->
+  <div class="screen" id="platinum">
+    <div class="back-link" onclick="goBack()">← Back to Tiers</div>
+        <h2>💎 Welcome to the PLATINUM Envoy</h2>
+    <p>This tier is by invitation only. Hand-picked partners who support our mission.</p>
+    <p>Enjoy full elite packages & become a part of the XIONPAY team.</p>
+    <button class="cta-button" onclick="alert('Coming soon...')">Become a Partner</button>
+  </div>
+
+  <script>
+    function showScreen(id) {
+      document.querySelectorAll('.screen').forEach(screen => screen.classList.remove('active'));
+      document.getElementById(id).classList.add('active');
+      document.querySelector('.tiers').style.display = 'none';
+    }
+
+    function goBack() {
+      document.querySelectorAll('.screen').forEach(screen => screen.classList.remove('active'));
+      document.querySelector('.tiers').style.display = 'flex';
+    }
+  </script>
+</body>
+</html>
